@@ -1,0 +1,19 @@
+<h1>Latest releases</h1>
+
+<hr>
+<div>
+{{#each releases}}
+	<a href="/releases/{{_id}}"><b>{{ title }}</b></a> <br>
+	{{@user.organisation}} - {{moment datePublished format='Do MMMM YYYY'}}
+	<br>{{moment datePublished format='HH:mm:ss'}}
+
+
+	<!-- {{this}} -->
+	<!--
+	momentjs helper
+	if under a day, show hours
+	if over, show date
+	-->
+	<hr>
+{{/each}}
+</div>

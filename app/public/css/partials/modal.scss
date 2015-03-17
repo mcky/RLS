@@ -1,0 +1,39 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	@include z-index(modal);
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,0.3);
+	align-items: center;
+  	justify-content: center;
+	display: none;
+
+	&--active {
+		display: flex;
+	}
+
+	&__center {
+		background: white;
+		width: 85%;
+		max-height: 70%;
+		overflow-y: scroll;
+		@include breakpoint(medium) {
+			width: 35%;
+		}
+	}
+
+	&__header {
+		background: $ls-red;
+		text-align: center;
+		color: white;
+		padding: 1rem 0;
+		font-weight: bold;
+		font-size: 1.5em;
+	}
+
+	&__content {
+		padding: 2rem;
+	}
+}

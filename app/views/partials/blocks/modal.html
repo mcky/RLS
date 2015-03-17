@@ -1,0 +1,14 @@
+
+	<div class="
+		modal
+		{{#if args.visible}} modal--active{{/if}}
+	" id="{{args.id}}">
+
+	<!-- <div class="modal"> -->
+	<div class="modal__center">
+		<div class="modal__header">{{ args.title }}</div>
+		<div class="modal__content">
+			{{ content }}
+		</div>
+	</div>
+</div>

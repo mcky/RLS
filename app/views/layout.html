@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RLS - {{title}}</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="{{title}} env--{{env}}">
+	<!-- {{> nav}} -->
+
+	{{#component 'modal' title='Login' id='loginModal' visible=query.loginModal}}
+		{{>loginForm}}
+	{{/component}}
+
+	{{#component 'modal' title='Register' id='registerModal' visible=query.registerModal}}
+		{{>registerForm}}
+	{{/component}}
+
+	<nav class="navbar">
+		<div class="navbar__left">
+			<a href="">&nbsp;<!-- hamburger --></a>
+		</div>
+
+		<a href="/" class="navbar__logo">rls</a>
+
+		<ul class="navbar__right">
+			{{#if user }}
+				<li><a href="/submit">Submit</a></li>
+				<li><a href="/account">Account</a></li>
+			{{ else }}
+				<li><a href="/register" class="navbar__link navbar__link--auth" data-modal="register">Join</a></li>
+				<li><a href="/login" class="navbar__link navbar__link--auth" data-modal="login">Log in</a></li>
+			{{/if }}
+		</ul>
+	</nav>
+
+	<div class="main">
+		{{{ body }}}
+	</div>
+
+	<script src="./js/app.js"></script>
+</body>
+</html>

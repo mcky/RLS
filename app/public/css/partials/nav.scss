@@ -1,0 +1,53 @@
+.navbar {
+	@include row;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: $ls-red;
+	background: $ls-red-lighter;
+	background: linear-gradient(to right, $ls-red-lighter, $ls-red);
+	// text-transform: uppercase;
+	font-weight: bold;
+	@include z-index(navbar);
+
+	&__left {
+		@include span-columns(4)
+	}
+
+	&__logo {
+		@include span-columns(4);
+		padding: 1rem 0;
+		text-align: center;
+	}
+
+	&__right {
+		@include span-columns(4);
+		list-style: none;
+		text-align: right;
+		padding: 1rem 0;
+		font-size: 0.9em;
+		height: 100%;
+
+		li {
+			display: inline;
+			height: 100%;
+		}
+
+		a {
+			padding: 1rem;
+			border-left: 1px solid darken($ls-red, 5%);
+			&:last-of-type {
+				// background: red;
+			}
+			&:hover, &:focus {
+				background: darken($ls-red, 5%);
+			}
+		}
+
+	}
+
+	a {
+		color: white;
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,46 @@
+<h1>Account</h1>
+
+<a href="/logout">Logout</a>
+<br><br>
+<!-- <pre>{{user}}</pre> -->
+<form action="/account" method="POST">
+	<div class="field">
+		<label for="userOrg">Email</label>
+		<input type="email" name="userEmail" value="{{user.email}}">
+	</div>
+
+	<div class="field">
+		<label for="userOrg">Organisation</label>
+		<input type="text" name="userOrg" value="{{user.organisation}}">
+	</div>
+
+	<fieldset>
+		Address
+		<div class="field">
+			<label for="userOrg">Line one</label>
+			<input type="text" name="addrLineOne" value="{{user.address.lineOne}}">
+		</div>
+
+		<div class="field">
+			<label for="userOrg">Line two</label>
+			<input type="text" name="addrLineTwo" value="{{user.address.lineTwo}}">
+		</div>
+
+		<div class="field">
+			<label for="userOrg">City</label>
+			<input type="text" name="addrCity" value="{{user.address.city}}">
+		</div>
+
+		<div class="field">
+			<label for="userOrg">Country</label>
+			<input type="text" name="addrCountry" value="{{user.address.country}}">
+		</div>
+
+		<div class="field">
+			<label for="userOrg">Postcode</label>
+			<input type="text" name="addrPost" value="{{user.address.postcode}}">
+		</div>
+	</fieldset>
+
+	<input type="submit" value="Submit" class="float-right">
+</form>

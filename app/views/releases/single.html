@@ -1,0 +1,9 @@
+<!-- Compare user ID to release owner ID -->
+<div class="release-content">
+	<h1 class="release__title">{{release.title}}</h1>
+	{{user.organisation}} - {{moment release.datePublished format='Do MMMM YYYY'}}
+	<br><br>
+	{{#each release.content}}
+		<p>{{text}}</p>
+	{{/each}}
+</div>
