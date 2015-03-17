@@ -82,6 +82,10 @@ body {
 	}
 }
 
+.clear {
+	@include clearfix;
+}
+
 .auth-form {
 	@include clearfix;
 

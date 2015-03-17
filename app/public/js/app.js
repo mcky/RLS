@@ -25,9 +25,9 @@ var modal = {
 	}
 }
 
-var navAuthLinks = document.getElementsByClassName('navbar__link--auth')
-for (var i = 0; i < navAuthLinks.length; i++) {
-	navAuthLinks[i].addEventListener('click', function(e){
+var modalTriggers = document.getElementsByClassName('modalTrigger')
+for (var i = 0; i < modalTriggers.length; i++) {
+	modalTriggers[i].addEventListener('click', function(e){
 		e.preventDefault()
 		var modalID = this.dataset.modal + 'Modal'
 		modal.show(modalID)
@@ -44,7 +44,6 @@ for (var i = 0; i < modals.length; i++) {
 		// modal.show(modalID)
 	})
 }
-
 
 var bodyClass = document.body.classList
 if (bodyClass.contains('Home')) {

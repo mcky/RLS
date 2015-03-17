@@ -3,7 +3,7 @@
 <a href="/logout">Logout</a>
 <br><br>
 <!-- <pre>{{user}}</pre> -->
-<form action="/account" method="POST">
+<form action="/account" method="POST" class="clear">
 	<div class="field">
 		<label for="userOrg">Email</label>
 		<input type="email" name="userEmail" value="{{user.email}}">
@@ -51,7 +51,7 @@
 
 
 {{#component 'modal' title='Delete account' id='deleteAccountModal' visible=query.deleteModal}}
-	<form action="/account?_method=DELETE" method="POST">
+	<form action="/account?_method=DELETE" method="POST" class="clear">
 		<p>Are you sure?</p>
 		<label for="password">Password</label>
 		<input type="password" name="password">

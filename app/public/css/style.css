@@ -246,6 +246,11 @@ body {
   .guide__help p {
     margin-bottom: 0; }
 
+.clear::after {
+  clear: both;
+  content: "";
+  display: table; }
+
 .auth-form::after {
   clear: both;
   content: "";
