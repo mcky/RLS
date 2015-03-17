@@ -3,7 +3,14 @@ var mongoose = require('mongoose')
 	, passportLocalMongoose = require('passport-local-mongoose')
 
 var Account = new Schema({
-	organisation: String
+	nameOrOrg: String
+	, isPersonal: Boolean
+	, isContributor: Boolean
+	, isSubscriber: Boolean
+	, isAdmin: Boolean
+	, orgEmail: String
+	, orgPhone: String
+	, dateRegistered: Date
 	, address: {
 		lineOne: String
 		, lineTwo: String

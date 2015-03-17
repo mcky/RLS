@@ -6,10 +6,13 @@ function ensureAuthenticated(req, res, next) {
 	// Adding a route to the array skips authentication
 	// Warning: skips authentication on all sub routes
 	var publicRoutes = ['/', '/login', '/register', '/archive']
-		, baseUrl = '/' + req.url.split("/")[1]
+		, baseUrl = '/' + req.url.split("/")[1].split("?")[0]
+
 	if (publicRoutes.indexOf(baseUrl) != -1) return next()
 	if (req.isAuthenticated()) return next()
-	res.redirect('/login')
+
+	var next = req.url.split("?")[0]
+	res.redirect('/login?next='+next)
 }
 
 module.exports = function(app){

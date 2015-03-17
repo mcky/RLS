@@ -44,3 +44,18 @@
 
 	<input type="submit" value="Submit" class="float-right">
 </form>
+
+<hr>
+<h2>Delete my account</h2>
+<button class="modalTrigger" data-modal="deleteAccount">Delete</button>
+
+
+{{#component 'modal' title='Delete account' id='deleteAccountModal' visible=query.deleteModal}}
+	<form action="/account?_method=DELETE" method="POST">
+		<p>Are you sure?</p>
+		<label for="password">Password</label>
+		<input type="password" name="password">
+		<!-- <input type="reset" value="Cancel" class="button--subtle" data-modalButton data-modal-close> -->
+		<input type="submit" value="Submit" class="float-right">
+	</form>
+{{/component}}
