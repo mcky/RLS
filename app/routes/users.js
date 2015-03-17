@@ -5,17 +5,22 @@ var express = require('express')
 
 login = {
 	get: function(req, res) {
-		// Check not logged in
-		res.render('login')
+		if (req.isAuthenticated()) {
+			req.logout()
+			res.redirect('/login')
+		} else {
+			res.render('login')
+		}
 	}
 	, post: function(req, res) {
-		res.redirect('/')
+		var next = req.body.next || '/'
+		res.redirect(next)
 	}
 }
 
 logout = function(req, res) {
 	req.logout()
-	res.redirect('/')
+	res.redirect('/login')
 }
 
 register = {
@@ -32,7 +37,8 @@ register = {
 			console.log('user registered!')
 
 			passport.authenticate('local')(req, res, function () {
-				res.redirect('/')
+				var next = req.body.next || '/'
+				res.redirect(next)
 			})
 		})
 	}
