@@ -64,6 +64,17 @@ account = {
 			res.redirect('/account')
 		})
 	}
+	, delete: function(req, res) {
+		req.user.authenticate(req.body.password, function(err, thisModel, passwordErr) {
+			if (err || passwordErr) {
+				// Flash/error
+				res.redirect('/account')
+			} else {
+				Account.findById(req.user._id).remove().exec()
+				res.redirect('/')
+			}
+		})
+	}
 }
 
 router.get('/login', login.get)
@@ -77,5 +88,6 @@ router.post('/register', register.post)
 
 router.get('/account', account.get)
 router.post('/account', account.post)
+router.delete('/account', account.delete)
 
 module.exports = router
